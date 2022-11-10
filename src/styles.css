@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  font-family:Roboto, "Helvetica Neue", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.MuiDrawer-paper{
+  opacity: 0.95;
+}
+.MuiDivider-root{
+  border-color: azure !important;
+}
+
+.Mui-selected{
+  background-color: rgb(220, 225, 247) !important;
+  
+}
