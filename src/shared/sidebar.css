@@ -1,0 +1,10 @@
+.sidebar {
+  width: 50%;
+  min-height: 100vh;
+}
+
+.title {
+  background-color: rgb(105, 2, 202) !important;
+  color: #ffff !important;
+  padding:10px;
+}
