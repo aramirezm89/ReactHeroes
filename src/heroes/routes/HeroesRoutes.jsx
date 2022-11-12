@@ -8,7 +8,7 @@ export const HeroesRoutes = ({ toggleDrawer }) => {
   return (
     <>
       <NavBar toggleDrawer={toggleDrawer} />
-      <div className="container mt-2">
+      <div className="container-fluid mt-2">
         <Routes>
           <Route path="dc" element={<DCPage />}></Route>
           <Route path="marvel" element={<MarvelPage />}></Route>

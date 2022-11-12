@@ -1,7 +1,16 @@
-import React from 'react'
+import { Divider } from "@mui/material";
+import { HeroeList } from "../components/HeroeList";
+
 
 export const MarvelPage = () => {
   return (
-    <div>MarvelPage</div>
-  )
+    <>
+      <h1>Marvel Comic</h1>
+      <Divider />
+
+      <div>
+        <HeroeList publisher={"Marvel Comics"} />
+      </div>
+    </>
+  );
 }

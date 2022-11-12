@@ -1,15 +1,23 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./navBar.css";
 export const NavBar = ({ toggleDrawer }) => {
 
+  const navigate = useNavigate();
+const onLogout = () =>{
+  navigate('/login',{
+    replace:true
+  })
+}
 
   return (
     <nav className=" navCustom">
       <div className="row">
-        <div className="col-4">
-          <Button onClick={toggleDrawer("left", true)}>{<MenuIcon />}</Button>
+        <div className="col-4 ">
+          <Button className="navButtons" onClick={toggleDrawer("left", true)}>
+            {<MenuIcon />}
+          </Button>
         </div>
 
         <div className="col-4 text-center mt-1">
@@ -18,7 +26,9 @@ export const NavBar = ({ toggleDrawer }) => {
           </NavLink>
         </div>
         <div className="col-4 text-end">
-          <Button>Logout</Button>
+          <Button className="navButtons" onClick={onLogout}>
+            Logout
+          </Button>
         </div>
       </div>
     </nav>

@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+
   font-family:Roboto, "Helvetica Neue", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -21,3 +21,12 @@ code {
   background-color: rgb(220, 225, 247) !important;
   
 }
+
+.MuiCardContent-root{
+  background-color: rgba(0, 0, 0, 0.175) !important;
+}
+.MuiCardActions-root{
+    background-color: rgba(0, 0, 0, 0.175) !important;
+}
+
+
