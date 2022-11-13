@@ -5,6 +5,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
+import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from '@mui/icons-material/Search';
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { useState } from "react";
@@ -40,11 +41,12 @@ export function SidebarComponent() {
   };
 
   const menu = [
+    { label: "Home", icon: <HomeIcon />, path: "/" },
     { label: "DC", icon: <LabelIcon />, path: "/dc" },
     { label: "Marvel", icon: <LabelIcon />, path: "/marvel" },
-    { label: "Agregar Héroe", icon: <LabelIcon />},
-    { label: "Buscar Héroe", icon: <SearchIcon />, path:"/search"},
-    { label: "Héroe", icon: <LabelIcon />, path:'/hero' },
+    { label: "Agregar Héroe", icon: <LabelIcon /> },
+    { label: "Buscar Héroe", icon: <SearchIcon />, path: "/search" },
+    { label: "Héroe", icon: <LabelIcon />, path: "/hero" },
   ];
 
   const list = (anchor) => (

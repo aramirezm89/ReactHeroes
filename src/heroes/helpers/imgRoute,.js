@@ -1,6 +1,6 @@
 
 
-export const imgRoute = (ruta) =>{
+export const imgRoute =  (ruta) =>{
   
 if(ruta.includes('http')){
     return ruta;
