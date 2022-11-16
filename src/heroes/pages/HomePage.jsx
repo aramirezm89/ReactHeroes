@@ -3,7 +3,7 @@ import { Divider } from "@mui/material"
 
 export const HomePage = () => {
   return (
-    <div className="container ">
+    <div className="container animate__animated animate__fadeIn ">
       <h1>Bienvenido a la enciclopedia de héroes</h1>
       <div className="row">
         <div className="col-md-6 col-sm-12 mb-2">

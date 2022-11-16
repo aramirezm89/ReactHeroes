@@ -1,11 +1,16 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
+import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../auth/context";
 import "./navBar.css";
 export const NavBar = ({ toggleDrawer }) => {
 
-  const navigate = useNavigate();
+const {authState,logout} = useContext(AuthContext)
+const {user,logged} = authState;
+const navigate = useNavigate();
 const onLogout = () =>{
+  logout();
   navigate('/login',{
     replace:true
   })
@@ -22,7 +27,7 @@ const onLogout = () =>{
 
         <div className="col-4 text-center mt-1">
           <NavLink className="navbar-brand" to="/">
-            Heroes App
+            {user?.name}
           </NavLink>
         </div>
         <div className="col-4 text-end">

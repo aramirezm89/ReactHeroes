@@ -1,17 +1,17 @@
+import HomeIcon from "@mui/icons-material/Home";
 import LabelIcon from "@mui/icons-material/Label";
 import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from '@mui/icons-material/Search';
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import HomeIcon from "@mui/icons-material/Home";
-import SearchIcon from '@mui/icons-material/Search';
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { useState } from "react";
-import { NavBar } from "./NavBar";
 
 import { NavLink } from "react-router-dom";
+import { AuthProvider } from "../auth/context";
 import { AppRouter } from "../router/AppRouter";
 import "./sidebar.css";
 
@@ -21,9 +21,9 @@ export function SidebarComponent() {
     left: false,
   });
 
-    const [selectedIndex, setSelectedIndex] = useState(1);
+    const [selectedIndex, setSelectedIndex] = useState();
 
-      const handleListItemClick = ( index) => {
+      const handleListItemClick = (index) => {
         setSelectedIndex(index);
       };
 
@@ -90,11 +90,9 @@ export function SidebarComponent() {
         </SwipeableDrawer>
       </div>
 
- 
-
-     
+      <AuthProvider>
         <AppRouter toggleDrawer={toggleDrawer} />
- 
+      </AuthProvider>
     </>
   );
 }

@@ -26,15 +26,14 @@ export const HeroPage = () => {
  
 
   return (
-
-    <div className="row d-md-flex mt-4 ">
+    <div className="row d-md-flex mt-4">
       <div className="col-md-6 col-sm-12  text-center">
         <h2>
           {hero.superhero} - <small>{hero.alter_ego}</small>
         </h2>
         <Divider />
         <img
-          className="mt-2 mb-4"
+          className="mt-2 mb-4 animate__animated animate__bounceInLeft "
           style={{ maxHeight: "600px", maxWidth: "400px" }}
           src={imgUrl}
           alt={hero.superhero}
