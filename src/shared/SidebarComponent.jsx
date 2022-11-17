@@ -46,7 +46,6 @@ export function SidebarComponent() {
     { label: "Marvel", icon: <LabelIcon />, path: "/marvel" },
     { label: "Agregar Héroe", icon: <LabelIcon /> },
     { label: "Buscar Héroe", icon: <SearchIcon />, path: "/search" },
-    { label: "Héroe", icon: <LabelIcon />, path: "/hero" },
   ];
 
   const list = (anchor) => (

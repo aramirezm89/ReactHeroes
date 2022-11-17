@@ -27,7 +27,7 @@ const onLogout = () =>{
 
         <div className="col-4 text-center mt-1">
           <NavLink className="navbar-brand" to="/">
-            {user?.name}
+            {user?.username}
           </NavLink>
         </div>
         <div className="col-4 text-end">
