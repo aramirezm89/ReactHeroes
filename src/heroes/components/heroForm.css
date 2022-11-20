@@ -1,0 +1,16 @@
+input {
+    color:#ffff !important
+}
+
+option {
+    color:aliceblue !important
+}
+
+label{
+      color:rgb(67, 155, 231) !important
+}
+
+
+.MuiInput-root{
+ color:aliceblue !important
+}

@@ -1,0 +1,16 @@
+.image{
+    margin: 0;
+      background-image: url('https://images8.alphacoders.com/463/463477.jpg');
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h3{
+    color:  rgb(252, 251, 248); ;
+}
+.card{
+    background-color: rgb(52, 51, 50);
+    opacity: 0.9;
+}

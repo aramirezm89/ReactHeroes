@@ -6,6 +6,7 @@ import "bootswatch/dist/darkly/bootstrap.min.css";
 import { HeroesApp } from './HeroesApp';
 import reportWebVitals from './reportWebVitals';
 import "animate.css";
+  import "react-toastify/dist/ReactToastify.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>

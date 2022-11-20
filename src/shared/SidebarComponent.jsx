@@ -2,6 +2,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import LabelIcon from "@mui/icons-material/Label";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from '@mui/icons-material/Search';
+import AddIcon from '@mui/icons-material/Add';
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -44,7 +45,7 @@ export function SidebarComponent() {
     { label: "Home", icon: <HomeIcon />, path: "/" },
     { label: "DC", icon: <LabelIcon />, path: "/dc" },
     { label: "Marvel", icon: <LabelIcon />, path: "/marvel" },
-    { label: "Agregar Héroe", icon: <LabelIcon /> },
+    { label: "Agregar Héroe", icon: <AddIcon />, path:"/hero/add" },
     { label: "Buscar Héroe", icon: <SearchIcon />, path: "/search" },
   ];
 
