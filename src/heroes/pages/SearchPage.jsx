@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
-import { HeroeList } from '../components/HeroeList'
+import { TextField } from "@mui/material";
+import React, { useState } from "react";
+import { HeroeList } from "../components/HeroeList";
 
 export const SearchPage = () => {
+  const [hero, setHero] = useState("");
 
-  const [hero,setHero]=useState("")
-
-  const handleOnChange = ({target}) =>{
+  const handleOnChange = ({ target }) => {
     const value = target.value;
-    setHero(value)
-  }
-
+    setHero(value);
+  };
 
   return (
     <>
@@ -18,9 +17,12 @@ export const SearchPage = () => {
         <hr />
 
         <div className="col mb-2">
-          <input
-            className="form-control"
-            placeholder="Ingresa el nombre del superheroe"
+          <TextField
+            style={{ width: "100%" }}
+            id="outlined-basic"
+            label="Buscar héroe"
+            variant="outlined"
+            placeholder="Ingresa nombre del héro que deseas encontrar"
             onChange={handleOnChange}
           />
         </div>
@@ -31,4 +33,4 @@ export const SearchPage = () => {
       </div>
     </>
   );
-}
+};

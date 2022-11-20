@@ -9,7 +9,7 @@ export const FieldText = ({errors,name,label,variant="outlined"}) => {
       <Field name={name}>
         {({ field }) => (
           <FormControl
-         
+           
             sx={{ m: 1, width: "25ch" }}
             variant={variant}
             style={{ width: "100%" }}
