@@ -2,24 +2,29 @@ import { FilledInput, FormControl, InputLabel } from '@mui/material';
 import { ErrorMessage, Field } from 'formik';
 import React from 'react'
 
-export const FieldText = ({errors,name,label,variant="outlined"}) => {
- 
+export const FieldText = ({
+  errors,
+  name,
+  label,
+  variant = "standard",
+  input
+}) => {
   return (
     <>
       <Field name={name}>
         {({ field }) => (
           <FormControl
-           
             sx={{ m: 1, width: "25ch" }}
             variant={variant}
             style={{ width: "100%" }}
-            error={ errors[name] ? true:false}
+            error={errors[name] ? true : false}
           >
             <InputLabel htmlFor="filled-adornment-password">{label}</InputLabel>
             <FilledInput
               {...field}
               id="filled-adornment-password"
               type="text"
+              onInput={input}
             />
           </FormControl>
         )}
@@ -29,7 +34,7 @@ export const FieldText = ({errors,name,label,variant="outlined"}) => {
       </ErrorMessage>
     </>
   );
-}
+};
 
 FieldText.defaultProps= {
     name:'',
