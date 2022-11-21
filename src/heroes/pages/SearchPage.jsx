@@ -22,7 +22,7 @@ export const SearchPage = () => {
             id="outlined-basic"
             label="Buscar héroe"
             variant="outlined"
-            placeholder="Ingresa nombre del héro que deseas encontrar"
+            placeholder="Ingresa nombre del héroe que deseas encontrar"
             onChange={handleOnChange}
           />
         </div>

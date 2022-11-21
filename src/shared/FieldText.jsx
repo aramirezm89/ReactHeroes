@@ -1,13 +1,13 @@
-import { FilledInput, FormControl, InputLabel } from '@mui/material';
-import { ErrorMessage, Field } from 'formik';
-import React from 'react'
+import { FilledInput, FormControl, InputLabel } from "@mui/material";
+import { ErrorMessage, Field } from "formik";
+import React from "react";
 
 export const FieldText = ({
   errors,
   name,
   label,
   variant = "standard",
-  input
+  input,
 }) => {
   return (
     <>
@@ -36,7 +36,7 @@ export const FieldText = ({
   );
 };
 
-FieldText.defaultProps= {
-    name:'',
-    error:{}
-}
+FieldText.defaultProps = {
+  name: "",
+  error: {},
+};

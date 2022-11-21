@@ -3,16 +3,9 @@ import { HeroForm } from "../components/HeroForm";
 import { imgRoute } from "../helpers/imgRoute,";
 
 export const AddHero = () => {
-
-
- 
-  const [imageUrl, setImageUrl] = useState(
-   
-  );
-
+  const [imageUrl, setImageUrl] = useState();
 
   const setImage = (image) => {
-    console.log(image)
     setImageUrl(image);
   };
   return (
@@ -22,7 +15,7 @@ export const AddHero = () => {
         <hr />
         <div className=" row  d-flex-nowrap justify-content-between align-items-center">
           <div className="col-md-5 col-sm-12 ">
-            <HeroForm setImage={setImage}/>
+            <HeroForm setImage={setImage} />
           </div>
 
           <div className="col-md-5 col-sm-12">

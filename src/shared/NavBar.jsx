@@ -7,7 +7,7 @@ import "./navBar.css";
 export const NavBar = ({ toggleDrawer }) => {
 
 const {authState,logout} = useContext(AuthContext)
-const {user,logged} = authState;
+const {user} = authState;
 const navigate = useNavigate();
 const onLogout = () =>{
   logout();

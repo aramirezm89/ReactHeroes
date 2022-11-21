@@ -39,6 +39,7 @@ export const LoginForm = () => {
           if (data?.usuario) {
             login(data.usuario); //funcion que llega desde el AuthContext
             handleNotificationSuccess(`Bienvenido ${data.usuario.username}`)
+            localStorage.setItem('x-token',data.token)
             navigate(lastPath, {
               replace: true,
             });

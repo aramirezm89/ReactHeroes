@@ -1,24 +1,33 @@
 import { Formik } from "formik";
 import { useState, useEffect } from "react";
-import { getHeroById } from "../../api/heroes/heroesApi";
+import {
+  createHero,
+  getHeroById,
+  updateHero,
+} from "../../api/heroes/heroesApi";
 import { FieldText } from "../../shared/FieldText";
 import { SelectField } from "../../shared/SelectField";
+import * as yup from "yup";
 import "./heroForm.css";
+import { ThumbUp } from "@mui/icons-material";
+import {
+  handleNotificationError,
+  handleNotificationSuccess,
+} from "../helpers/handleNotification";
 
-export const HeroForm = ({ setImage,id}) => {
- const [formHero, setFormHero] = useState();
+export const HeroForm = ({ setImage, id }) => {
+  const [formHero, setFormHero] = useState();
 
- useEffect(() => {
-
-  if(id){
-    getHeroById(id)
-         .then(({ data }) => {
-           const { hero } = data;
-           console.log(hero);
-           setFormHero(hero);
-         })
-         .catch((err) => console.log(err))
-  }else{
+  useEffect(() => {
+    if (id) {
+      getHeroById(id)
+        .then(({ data }) => {
+          const { hero } = data;
+          console.log(hero);
+          setFormHero(hero);
+        })
+        .catch((err) => console.log(err));
+    } else {
       setFormHero({
         superhero: "",
         publisher: "",
@@ -27,42 +36,66 @@ export const HeroForm = ({ setImage,id}) => {
         characters: "",
         imageId: "",
       });
-
-  }
- 
-      
- }, [id]);
-  
-
-
-
-  
-
-
+    }
+  }, [id]);
 
   const onAddHero = (values, actions) => {
-    console.log(values);
+    //si en values se encuentra la _id queire decir que se avtualizara el héroe si no se creara
+    console.log(actions)
+    if (values._id) {
+      updateHero(values._id, values)
+        .then(({ data }) => {
+          handleNotificationSuccess(data.message);
+       
+        })
+        .catch((err) => {
+          console.log(err);
+
+          const { response } = err;
+          handleNotificationError(response.data.message);
+        });
+        
+    } else {
+      createHero(values)
+        .then(({ data }) => {
+          handleNotificationSuccess(data.message);
+             actions.resetForm();
+        })
+        .catch((err) => {
+          console.log(err);
+
+          const { response } = err;
+          handleNotificationError(response.data.message);
+        });
+    }
   };
 
   const onSetImage = (imageId) => {
-     if(imageId.length >0){
-        setImage(imageId)
-     }else{
-        setImage(
-          "https://www.pngitem.com/pimgs/m/499-4992374_sin-imagen-de-perfil-hd-png-download.png"
-        );
-     }
+    if (imageId.length > 0) {
+      setImage(imageId);
+    } else {
+      setImage(
+        "https://www.pngitem.com/pimgs/m/499-4992374_sin-imagen-de-perfil-hd-png-download.png"
+      );
+    }
   };
 
-  console.log(formHero)
   return (
     <>
       {formHero && (
         <Formik
-          initialValues={
-            formHero
-          }
+          initialValues={formHero}
           onSubmit={(values, actions) => onAddHero(values, actions)}
+          validationSchema={yup.object({
+            superhero: yup.string().required("Este campo es obligatorio"),
+            alter_ego: yup.string().required("Este campo es obligatorio"),
+            publisher: yup.string().required("Este campo es obligatorio"),
+            first_appearance: yup
+              .string()
+              .required("Este campo es obligatorio"),
+            characters: yup.string().required("Este campo es obligatorio"),
+            imageId: yup.string().required("Este campo es obligatorio"),
+          })}
         >
           {({ errors, handleSubmit, isSubmitting, values }) => (
             <form
