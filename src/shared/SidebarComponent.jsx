@@ -9,12 +9,13 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import { NavLink } from "react-router-dom";
-import { AuthProvider } from "../auth/context";
+
 import { AppRouter } from "../router/AppRouter";
 import "./sidebar.css";
+import { AuthContext } from "../auth/context";
 
 
 export function SidebarComponent() {
@@ -24,6 +25,8 @@ export function SidebarComponent() {
 
     const [selectedIndex, setSelectedIndex] = useState();
 
+    const {authState} = useContext(AuthContext)
+    const {user} = authState;
       const handleListItemClick = (index) => {
         setSelectedIndex(index);
       };
@@ -41,7 +44,7 @@ export function SidebarComponent() {
     setState({ ...state, [anchor]: open });
   };
 
-  const menu = [
+  let menu = [
     { label: "Home", icon: <HomeIcon />, path: "/" },
     { label: "DC", icon: <LabelIcon />, path: "/dc" },
     { label: "Marvel", icon: <LabelIcon />, path: "/marvel" },
@@ -49,6 +52,9 @@ export function SidebarComponent() {
     { label: "Buscar Héroe", icon: <SearchIcon />, path: "/search" },
   ];
 
+  if(user?.role !=='ADMIN_ROLE'){
+    menu = menu.filter((m) => m.label !== "Agregar Héroe");
+  }
   const list = (anchor) => (
     <Box
       role="presentation"
@@ -90,9 +96,9 @@ export function SidebarComponent() {
         </SwipeableDrawer>
       </div>
 
-      <AuthProvider>
+    
         <AppRouter toggleDrawer={toggleDrawer} />
-      </AuthProvider>
+    
     </>
   );
 }

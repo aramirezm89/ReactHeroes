@@ -100,7 +100,7 @@ export const HeroForm = ({ setImage, id }) => {
           {({ errors, handleSubmit, isSubmitting, values }) => (
             <form
               onSubmit={handleSubmit}
-              className="d-grid gap-2"
+              className="d-grid gap-2 animate__animated animate__bounceInLeft "
               onChange={onSetImage(values.imageId)}
             >
               {/*campo  superhero */}

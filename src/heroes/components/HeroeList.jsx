@@ -24,6 +24,7 @@ export const HeroeList = ({ publisher, superhero }) => {
 
       superhero &&
         getHeroesBySuperHero(superhero).then(({ data }) => {
+          console.log(superhero)
           setHeroeList(data.heroes);
          
         });
