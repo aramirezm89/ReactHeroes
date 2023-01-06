@@ -8,10 +8,9 @@ import { SearchNoResults } from "./SearchNoResults";
 export const HeroeList = ({ publisher, superhero }) => {
   
   const [heroeList, setHeroeList] = useState([]);
- const [reload,setReload] = useState()
+ const [reload,setReload] = useState(false)
 
  const onReload = (valor) =>{
-  console.log(valor)
  setReload(valor);
  }
   useEffect(() => {
@@ -19,7 +18,7 @@ export const HeroeList = ({ publisher, superhero }) => {
       publisher &&
         getHeroesByPublisher(publisher).then(({ data }) =>{
            setHeroeList(data.heroes);
-           setReload(false)
+           setReload(!reload)
         });
 
       superhero &&

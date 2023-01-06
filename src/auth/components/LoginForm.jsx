@@ -1,21 +1,13 @@
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import {
-  FilledInput,
-  FormControl,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-} from "@mui/material";
-import { ErrorMessage, Field, Formik } from "formik";
-import { useContext, useState } from "react";
+import { Formik } from "formik";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { userLoogin } from "../../api/auth/authApi";
 import { handleNotificationError, handleNotificationSuccess } from "../../heroes/helpers/handleNotification";
 
-import { AuthContext } from "../context";
 import { FieldPassword } from "../../shared/FieldPassword";
 import { FieldText } from "../../shared/FieldText";
+import { AuthContext } from "../context";
 
 export const LoginForm = () => {
 

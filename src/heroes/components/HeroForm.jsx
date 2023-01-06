@@ -160,7 +160,7 @@ export const HeroForm = ({ setImage, id }) => {
                 <FieldText
                   name="imageId"
                   errors={errors}
-                  label="imageId"
+                  label="Imagen URL "
                   input={onSetImage(values?.imageId)}
                 />
               </div>
